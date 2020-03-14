@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react"
 import Input from './Input'
+import Button from './Button'
 
 const Form: React.FC = () => {
   const [name, setName] = useState<string>('default')
@@ -15,9 +16,9 @@ const Form: React.FC = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
+      <form className="column" onSubmit={onSubmit}>
         <Input text="Add restaurant" onInputChange={handleChange} />
-        <button type="submit">Save</button>
+        <Button text="Save" />
       </form>
     </div>
   )

@@ -28,7 +28,7 @@ code {
   margin: 2em;
 }
 
-.list {
+.column {
   display: flex;
   flex-direction: column;
 }
