@@ -1,5 +1,4 @@
 import { Action, action, Thunk, thunk } from 'easy-peasy'
-import { uuid } from 'uuidv4'
 import { Injections } from '../store'
 
 export interface Restaurant {
@@ -14,9 +13,9 @@ export interface RestaurantModel {
 }
 
 const restaurantModel: RestaurantModel = {
-  items: [{ name: "McDonalds", id: uuid() },
-  { name: "Hawaiian Poke", id: uuid() },
-  { name: "Pom & Flora", id: uuid() }],
+  items: [{ name: "McDonalds", id: '1' },
+  { name: "Hawaiian Poke", id: '2' },
+  { name: "Pom & Flora", id: '3' }],
   addRestaurant: action((state, payload) => {
     state.items.push(payload)
   }),
