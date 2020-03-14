@@ -8,7 +8,7 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({ data }) => {
   return (
-    <div className="column">
+    <div className="column w40">
       {data.map(item =>
         <ListItem key={item.id} item={item} />
       )}

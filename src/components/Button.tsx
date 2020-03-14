@@ -6,7 +6,7 @@ interface ButtonProp {
 
 const Button: React.FC<ButtonProp> = ({ text }) => {
   return (
-    <button>{text}</button>
+    <button className="btn w30">{text}</button>
   )
 }
 

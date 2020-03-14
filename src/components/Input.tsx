@@ -7,12 +7,15 @@ import React, { ChangeEvent } from 'react'
  */
 
 interface InputProp {
-  text: string,
+  placeholder: string,
   onInputChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 export default function Input(props: InputProp) {
   return (
-    <input type="text" onChange={props.onInputChange} placeholder={props.text} />
+    <div className="inputContainer">
+      <input type="text" className="input" placeholder={props.placeholder} onChange={props.onInputChange} name="input" id='customInput' />
+      <label className="inputLabel">{props.placeholder}</label>
+    </div>
   )
 }

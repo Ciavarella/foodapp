@@ -15,9 +15,9 @@ const Form: React.FC = () => {
   }
 
   return (
-    <div>
-      <form className="column" onSubmit={onSubmit}>
-        <Input text="Add restaurant" onInputChange={handleChange} />
+    <div className="w60">
+      <form className="column align-center" onSubmit={onSubmit}>
+        <Input placeholder="Add restaurant" onInputChange={handleChange} />
         <Button text="Save" />
       </form>
     </div>
