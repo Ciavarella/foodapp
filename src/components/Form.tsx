@@ -1,14 +1,39 @@
 import Input from './Input'
-import { uuid } from 'uuidv4'
 import Button from './Button'
 import { useStoreActions } from '../hooks'
-import React, { ChangeEvent, FormEvent, useState } from "react"
+import { Restaurant } from '../models/restaurant'
+import React, { ChangeEvent, FormEvent, useState, useEffect } from "react"
 
+function useDebounce(value: string, delay: number) {
+  const [debouncedValue, setDebouncedValue] = useState("");
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value]);
+  return debouncedValue;
+}
 
+interface YelpResponse {
+  id: string
+  name: string,
+}
 
 const Form: React.FC = () => {
   const [name, setName] = useState<string>('')
-  const saveRestaurant = useStoreActions(actions => actions.restaurant.addRestaurant);
+  const [restaurant, setRestautant] = useState<YelpResponse>({ id: '', name: '' })
+  const saveRestaurant = useStoreActions(actions => actions.restaurant.addRestaurant)
+  const searchRestaurant = useStoreActions(actions => actions.restaurant.searchRestaurant)
+  const debouncedQuery = useDebounce(name, 300)
+
+  useEffect(() => {
+    if (debouncedQuery !== "") {
+      searchRestaurant(debouncedQuery).then((res: any) => setRestautant(res))
+    }
+  }, [debouncedQuery])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
@@ -16,14 +41,20 @@ const Form: React.FC = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    saveRestaurant({ name, id: uuid() })
+    const choosenRestaurant: Restaurant = {
+      name: restaurant.name,
+      id: restaurant.id
+    }
+    saveRestaurant(choosenRestaurant)
     setName('')
+    setRestautant({ id: '', name: '' })
   }
 
   return (
     <div className="w60">
       <form className="column align-center" onSubmit={onSubmit}>
         <Input placeholder="Add restaurant" value={name} onInputChange={handleChange} />
+        {restaurant && <p>{restaurant.name}</p>}
         <Button text="Save" />
       </form>
     </div>
