@@ -1,8 +1,8 @@
 import React from 'react'
-import ItemType from '../types'
+import { Restaurant } from '../models/restaurant'
 
 interface ItemProp {
-  item: ItemType
+  item: Restaurant
 }
 
 const ListItem: React.FC<ItemProp> = ({ item }) => {

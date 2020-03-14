@@ -1,15 +1,12 @@
 import React from 'react'
-import ItemType from '../types'
 import ListItem from './ListItem'
+import { useStoreState } from '../hooks'
 
-interface ListProps {
-  data: ItemType[]
-}
-
-const List: React.FC<ListProps> = ({ data }) => {
+const List: React.FC = () => {
+  const restaurants = useStoreState(state => state.restaurant.items)
   return (
     <div className="column w40">
-      {data.map(item =>
+      {restaurants.map(item =>
         <ListItem key={item.id} item={item} />
       )}
     </div>

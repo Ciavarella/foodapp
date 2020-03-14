@@ -24,7 +24,6 @@ code {
 
 .Content {
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
   margin: 2em;
 }

@@ -8,13 +8,14 @@ import React, { ChangeEvent } from 'react'
 
 interface InputProp {
   placeholder: string,
+  value: string,
   onInputChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 export default function Input(props: InputProp) {
   return (
     <div className="inputContainer">
-      <input type="text" className="input" placeholder={props.placeholder} onChange={props.onInputChange} name="input" id='customInput' />
+      <input type="text" className="input" placeholder={props.placeholder} value={props.value} onChange={props.onInputChange} name="input" id='customInput' />
       <label className="inputLabel">{props.placeholder}</label>
     </div>
   )
