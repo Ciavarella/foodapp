@@ -1,21 +1,22 @@
 import React from 'react';
-import './App.css';
+import List from './components/List'
+import ItemType from './types'
+import Form from './components/Form';
+
+const data: Array<ItemType> = [
+  { name: "McDonalds", id: 1 },
+  { name: "Hawaiian Poke", id: 2 },
+  { name: "Pom & Flora", id: 3 }
+];
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="Content">
+          <List data={data} />
+          <Form />
+        </div>
       </header>
     </div>
   );
