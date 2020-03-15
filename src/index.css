@@ -126,3 +126,9 @@ width: 40%;
 .btn:focus {
   outline:0;
 }
+
+.map {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
