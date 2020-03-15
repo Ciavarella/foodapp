@@ -1,3 +1,4 @@
+import Map from './Map'
 import Input from './Input'
 import Button from './Button'
 import { useStoreActions } from '../hooks'
@@ -49,7 +50,9 @@ const Form: React.FC = () => {
     }
     if (choosenRestaurant.id !== '') {
       const fullRestaurant = await getRestaurantCoordinates(choosenRestaurant.id)
-      choosenRestaurant.coordinates = fullRestaurant.coordinates
+      if (fullRestaurant.coordinates.latitude !== null || fullRestaurant.coordinates.longitude !== null) {
+        choosenRestaurant.coordinates = fullRestaurant.coordinates
+      }
       saveRestaurant(choosenRestaurant)
       setName('')
       setRestautant({ id: '', name: '' })
@@ -63,6 +66,9 @@ const Form: React.FC = () => {
         {restaurant && <p>{restaurant.name}</p>}
         <Button text="Save" />
       </form>
+      <div className="map">
+        <Map />
+      </div>
     </div>
   )
 }
