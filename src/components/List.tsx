@@ -5,7 +5,7 @@ import { useStoreState } from '../hooks'
 const List: React.FC = () => {
   const restaurants = useStoreState(state => state.restaurant.items)
   return (
-    <div className="column w40">
+    <div className="column w20 align-center">
       {restaurants.map(item =>
         <ListItem key={item.id} item={item} />
       )}

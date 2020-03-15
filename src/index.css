@@ -37,6 +37,10 @@ code {
   align-items: center;
 }
 
+.w20 {
+  width: 20%;
+}
+
 .w30 {
   width: 30%;
 }
