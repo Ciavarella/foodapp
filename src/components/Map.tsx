@@ -6,13 +6,12 @@ import { useStoreState } from '../hooks'
 function Map() {
   const restaurants = useStoreState(state => state.restaurant.items)
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
+    width: window.innerWidth,
+    height: 500,
     latitude: 59.334591,
     longitude: 18.063240,
     zoom: 10
   })
-
 
   return (
     <ReactMapGL
