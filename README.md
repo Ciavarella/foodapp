@@ -36,6 +36,6 @@ Starts on http://localhost:3000/
 
 * React.js
 * TypeScript
-* easy-peasy (for store)
-* react-map-gl (for map)
-* Yelp api (for searching and getting coordinates)
+* easy-peasy (state-management)
+* react-map-gl (map)
+* Yelp api (searching and getting coordinates)
