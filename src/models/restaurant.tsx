@@ -18,9 +18,9 @@ export interface RestaurantModel {
 }
 
 const restaurantModel: RestaurantModel = {
-  items: [{ name: "McDonalds", id: '1', coordinates: { longitude: 0, latitude: 0 } },
-  { name: "Hawaiian Poke", id: '2', coordinates: { longitude: 0, latitude: 0 } },
-  { name: "Pom & Flora", id: '3', coordinates: { longitude: 0, latitude: 0 } }],
+  items: [{ name: "McDonald's", id: '1', coordinates: { longitude: 18.0596199, latitude: 59.3306084 } },
+  { name: "Hawaii Poké", id: '2', coordinates: { longitude: 18.07203, latitude: 59.33422 } },
+  { name: "Pom och Flora", id: '3', coordinates: { longitude: 18.05869, latitude: 59.34463 } }],
   addRestaurant: action((state, payload) => {
     state.items.push(payload)
   }),
