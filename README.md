@@ -1,5 +1,8 @@
 # Food react map
 
+## Deploy
+Deployed [https://elegant-chandrasekhar-6cd7e9.netlify.com/](https://elegant-chandrasekhar-6cd7e9.netlify.com/)
+
 ## Project setup
 ```
 yarn install
