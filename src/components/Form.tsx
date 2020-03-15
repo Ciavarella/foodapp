@@ -27,6 +27,7 @@ const Form: React.FC = () => {
   const [restaurant, setRestautant] = useState<YelpResponse>({ id: '', name: '' })
   const saveRestaurant = useStoreActions(actions => actions.restaurant.addRestaurant)
   const searchRestaurant = useStoreActions(actions => actions.restaurant.searchRestaurant)
+  const getRestaurantCoordinates = useStoreActions(actions => actions.restaurant.getCoordinates)
   const debouncedQuery = useDebounce(name, 300)
 
   useEffect(() => {
@@ -39,21 +40,26 @@ const Form: React.FC = () => {
     setName(e.target.value)
   }
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const choosenRestaurant: Restaurant = {
       name: restaurant.name,
-      id: restaurant.id
+      id: restaurant.id,
+      coordinates: { longitude: 0, latitude: 0 }
     }
-    saveRestaurant(choosenRestaurant)
-    setName('')
-    setRestautant({ id: '', name: '' })
+    if (choosenRestaurant.id !== '') {
+      const fullRestaurant = await getRestaurantCoordinates(choosenRestaurant.id)
+      choosenRestaurant.coordinates = fullRestaurant.coordinates
+      saveRestaurant(choosenRestaurant)
+      setName('')
+      setRestautant({ id: '', name: '' })
+    }
   }
 
   return (
     <div className="w60">
       <form className="column align-center" onSubmit={onSubmit}>
-        <Input placeholder="Add restaurant" value={name} onInputChange={handleChange} />
+        <Input placeholder="Search restaruant" value={name} onInputChange={handleChange} />
         {restaurant && <p>{restaurant.name}</p>}
         <Button text="Save" />
       </form>
