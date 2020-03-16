@@ -7,10 +7,10 @@ function Map() {
   const restaurants = useStoreState(state => state.restaurant.items)
   const [viewport, setViewport] = useState({
     width: window.innerWidth,
-    height: 500,
+    height: 400,
     latitude: 59.334591,
     longitude: 18.063240,
-    zoom: 10
+    zoom: 11
   })
 
   return (

@@ -6,16 +6,16 @@ import { Restaurant } from '../models/restaurant'
 import React, { ChangeEvent, FormEvent, useState, useEffect } from "react"
 
 function useDebounce(value: string, delay: number) {
-  const [debouncedValue, setDebouncedValue] = useState("");
+  const [debouncedValue, setDebouncedValue] = useState("")
   useEffect(() => {
     const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
+      setDebouncedValue(value)
+    }, delay)
     return () => {
-      clearTimeout(handler);
-    };
-  }, [value]);
-  return debouncedValue;
+      clearTimeout(handler)
+    }
+  }, [value])
+  return debouncedValue
 }
 
 interface YelpResponse {

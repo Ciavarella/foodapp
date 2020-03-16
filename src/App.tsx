@@ -1,6 +1,7 @@
 import React from 'react'
 import List from './components/List'
 import Form from './components/Form'
+import Footer from './components/Footer'
 import { StoreProvider } from "easy-peasy"
 import store from './store'
 
@@ -13,6 +14,7 @@ function App() {
             <List />
             <Form />
           </div>
+          <Footer />
         </header>
       </div>
     </StoreProvider>

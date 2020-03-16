@@ -29,6 +29,9 @@ const Pins: React.FC<PinsProp> = ({ restaurants }) => {
           >
             <path d={ICON} />
           </svg>
+          <div className="mapText">
+            <span>{restaurant.name}</span>
+          </div>
         </Marker>
       ))}
     </React.Fragment>

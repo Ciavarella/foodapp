@@ -57,6 +57,12 @@ width: 40%;
   width: 60%;
 }
 
+.mapText {
+  color: #000000;
+  font-size: 0.8rem;
+  transform: translate(15px, -52px);
+}
+
 /* Input */
 .inputContainer {
   width: 100%;
@@ -138,7 +144,24 @@ width: 40%;
 .map {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  background-color: #ff82a7;
+  width: 100%;
+  position: absolute;
+}
+
+.img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 7rem;
+  height: 4rem;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 380px) {
